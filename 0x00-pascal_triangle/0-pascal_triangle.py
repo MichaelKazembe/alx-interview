@@ -1,4 +1,8 @@
+#!/usr/bin/python3
+"""Pascal's Triangle Python Implementation"""
+
 def pascal_triangle(n):
+    """ Pascal Triangle Function"""
     if n <= 0:
         return []
     res = [[1]]
