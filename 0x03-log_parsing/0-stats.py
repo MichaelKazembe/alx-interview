@@ -7,7 +7,7 @@ from signal import signal, SIGINT
 # Define the input format as a regular expression
 pattern = r'(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - \[(.*)\] "GET /projects/260 HTTP/1.1" (\d{3}) (\d+)'
 
-# Initialize the variables to store the statistics
+# Initialize the variables to store tthe statistics
 total_size = 0
 status_codes = defaultdict(int)
 
