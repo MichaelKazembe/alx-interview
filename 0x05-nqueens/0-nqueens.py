@@ -12,6 +12,7 @@ def is_safe(board, row, col, n):
             return False
     return True
 
+
 def solve_nqueens(board, row, n):
     """Solve n queens puzzle"""
     if row == n:
@@ -21,6 +22,7 @@ def solve_nqueens(board, row, n):
         if is_safe(board, row, col, n):
             board[row] = col
             solve_nqueens(board, row + 1, n)
+
 
 def nqueens(n):
     """Init n queens puzzle"""
@@ -35,6 +37,7 @@ def nqueens(n):
 
     board = [-1] * n
     solve_nqueens(board, 0, n)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
