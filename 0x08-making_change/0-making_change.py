@@ -1,30 +1,29 @@
 #!/usr/bin/python3
 """
-
+Main file for testing
 """
 
-def makeChange(coins, total):
-    """
-    Given a pile of coins of different values, determine the fewest number
-    of coins needed to meet a given amount total.
 
-    :param coins: List of coin values
-    :param total: Target total amount
-    :return: Fewest number of coins needed to meet the total
-             or -1 if it cannot be met
-    """
-    if total <= 0:
+def makeChange(coins, total):
+    """ Main file for testing """
+    # if total is 0 or less, return 0
+    if total < 1:
         return 0
 
-    # Initialize a list to store the minimum number of coins for each amount
-    dp = [float('inf')] * (total + 1)
-    dp[0] = 0  # Base case: 0 coins needed to make change for amount 0
+    # initialize an array to store the minimum number of coins
+    min_coins = [float('inf')] * (total + 1)
 
-    # Update the minimum number of coins for each amount from 1 to total
-    for amount in range(1, total + 1):
-        for coin in coins:
-            if coin <= amount:
-                dp[amount] = min(dp[amount], dp[amount - coin] + 1)
+    # the minimum number of coins to make 0 is 0
+    min_coins[0] = 0
 
-    # If dp[total] is still float('inf'), the total cannot be met by any combination of coins
-    return dp[total] if dp[total] != float('inf') else -1
+    # loop through the coins
+    for coin in coins:
+        # loop through the amounts from coin to total
+        for amount in range(coin, total + 1):
+            # update the minimum number of coins for the current amount
+            # by comparing the previous value and the value obtained by
+            # using the current coin
+            min_coins[amount] = min(min_coins[amount], min_coins[amount - coin] + 1)
+
+    # return the minimum number of coins for the target amount
+    return min_coins[total] if min_coins[total] != float('inf') else -1
