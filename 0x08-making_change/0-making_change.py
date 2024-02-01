@@ -23,7 +23,8 @@ def makeChange(coins, total):
             # update the minimum number of coins for the current amount
             # by comparing the previous value and the value obtained by
             # using the current coin
-            min_coins[amount] = min(min_coins[amount], min_coins[amount - coin] + 1)
+            min_coins[amount] = min(min_coins[amount],
+                                    min_coins[amount - coin] + 1)
 
     # return the minimum number of coins for the target amount
     return min_coins[total] if min_coins[total] != float('inf') else -1
