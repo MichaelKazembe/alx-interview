@@ -34,17 +34,17 @@ def isWinner(x, nums):
     """
     if x is None or nums is None or x == 0 or nums == []:
         return None
-    
-    Maria = Ben = 0
+
+    Maria_score = Ben_score = 0
     for limit in nums:
-        prime_count = len(is_prime(limit))  # Count the number of prime numbers within the limit
-        if prime_count % 2 == 0:  # If the count is even
-            Ben += 1  # Increment Ben's score
+        prime_count = len(is_prime(limit))
+        if prime_count % 2 == 0:
+            Ben_score += 1
         else:
-            Maria += 1  # Increment Maria's score
-    
-    if Maria > Ben:  # If Maria's score is higher
-        return 'Maria'  # Maria wins
-    elif Ben > Maria:  # If Ben's score is higher
-        return 'Ben'  # Ben wins
-    return None  # No winner found
+            Maria_score += 1
+
+    if Maria_score > Ben_score:
+        return 'Maria'
+    elif Ben_score > Maria_score:
+        return 'Ben'
+    return None
